@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request
 from google import genai
+from google.genai import types
 from dotenv import load_dotenv
 import os
 
@@ -35,9 +36,12 @@ def generate():
     """
 
     response = client.models.generate_content(
-        model="gemini-3.6-flash",
-        contents=prompt
+    model="gemini-3.6-flash",
+    contents=prompt,
+    config=types.GenerateContentConfig(
+        max_output_tokens=500
     )
+)
 
     study_material = response.text
 
