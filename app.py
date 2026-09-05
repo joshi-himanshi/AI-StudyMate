@@ -39,7 +39,7 @@ def generate():
     model="gemini-3.6-flash",
     contents=prompt,
     config=types.GenerateContentConfig(
-        max_output_tokens=500
+        max_output_tokens=1000
     )
 )
 
