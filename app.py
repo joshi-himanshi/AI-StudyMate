@@ -23,23 +23,28 @@ def generate():
     difficulty = request.form["difficulty"]
 
     prompt = f"""
-    Create study material for the topic: {topic}.
+Create detailed study material for the topic: {topic}.
 
-    Difficulty level: {difficulty}.
+Difficulty level: {difficulty}.
 
-    Explain the topic in simple language.
-    Include:
-    1. A short introduction
-    2. Important concepts
-    3. Examples
-    4. Key points to remember
-    """
+Explain the topic in simple and easy-to-understand language.
+
+Include:
+1. Short introduction
+2. Important concepts explained clearly
+3. Detailed examples
+4. Key points to remember
+5. Common mistakes if relevant
+6. A short summary at the end
+
+Make the study material well-structured and detailed.
+"""
 
     response = client.models.generate_content(
     model="gemini-3.6-flash",
     contents=prompt,
     config=types.GenerateContentConfig(
-        max_output_tokens=1000
+        max_output_tokens=2000
     )
 )
 
